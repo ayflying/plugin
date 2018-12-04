@@ -15,7 +15,7 @@ Hook::add('ceshi',function(){
 Hook::listen('ceshi');
 
 */
-namespace ayflying\plugin; // 命名空间
+namespace Ayflying\Plugin; // 命名空间
 
 // 插件类
 class Hook{
