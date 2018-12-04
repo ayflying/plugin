@@ -3,7 +3,9 @@
     "description": "给php系统增加插件功能",
     "authors": [
         {
-            "name": "乔焰阳"
+            "name": "乔焰阳",
+            "email": "ay@7cuu.com"
+            
         }
     ],
     "license": "MIT",
@@ -13,6 +15,9 @@
     "autoload": {
         "psr-4": {
             "Ayflying\\Plugin\\": "src/"
-        }
+        },
+        "files": [
+            "src/Hook.php"
+        ]
     }
 }
