@@ -4,30 +4,19 @@
  * ay@7cuu.com
  * 2017-11-24
  *
-钩子使用方法
-//引用命名空间
-use Ay\auto\Hook;
-//添加钩子
-Hook::add('ceshi',function(){
-    echo '挂载点1<br />';
-});
-//运行钩子
-Hook::listen('ceshi');
-
-*/
-namespace Ayflying\Plugin; // 命名空间
+ */
+namespace Ayflying\Plugin;
 
 // 插件类
 class Hook{
     private $hookList;
-    //public $hookList;
 
     /**
      * Hook初始化
      */
-    function __construct()
+    function __construct($dir)
     {
-        $dir = __DIR__ . "/plugin/";
+        
         // 获取全部插件
         if(!is_dir($dir)){
             $pluginList = [];
