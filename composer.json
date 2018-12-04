@@ -1,6 +1,6 @@
 {
     "name": "ayflying/plugin",
-    "description": "插件系统",
+    "description": "给php系统增加插件功能",
     "authors": [
         {
             "name": "乔焰阳"
