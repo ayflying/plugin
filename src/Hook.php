@@ -48,12 +48,9 @@ class Hook{
      * @param $name 钩子名称
      * @param $func 钩子使用的方法
      */
-    public static function add($name,$func){
+    public static function add($name,$func)
+    {
         $GLOBALS['hookList'][$name][]=$func;
-        //self::hookList[$name][] = $func;
-        //self::hookList()[$name][] = $func;
-        //self::$hookList[$name][] = $func;
-
     }
 
     /**
@@ -62,35 +59,24 @@ class Hook{
      * @param null $params 钩子方法参数
      * @return mixed|void
      */
-    public static function listen($name,$params=null){
+    public static function listen($name,&$params=null)
+    {
         if(empty($GLOBALS['hookList'][$name])) {
             //钩子为空
             return;
         }
-        //判断是否为数组
-        //self::$hookList;
-        if(count($GLOBALS['hookList'][$name]) > 1){
-            foreach ($GLOBALS['hookList'][$name] as $k => $v){
-                $obj[] = call_user_func($v,$params);
-            }
-        }else{
-            $obj[] = call_user_func($GLOBALS['hookList'][$name][0],$params);
+
+        //$params为传递变量的指针
+        foreach ($GLOBALS['hookList'][$name] as $k => $v){
+            $params = call_user_func($v,$params);
         }
-        return $obj;
+
     }
 
-    /**
-     * listen的别名方法
-     * @param $name
-     * @param null $params
-     * @return mixed|void
-     */
-    public static function run($name,$params=null){
-        return self::listen($name,$params);
-    }
+ 
 
-
-    public function hookList(){
+    public function hookList()
+    {
         return $this -> hookList;
     }
 }
